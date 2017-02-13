@@ -16,15 +16,46 @@
     <script type="text/jsx">
       /** @jsx React.DOM */
 
+      //to combine components just add it in as shown with SubMessage
       var MessageBox = React.createClass({
         render: function() {
           return (
-            <div class="container">
+            <div className="container">
               <h1>Hello, World</h1>
+              <SubMessage />
             </div>
           );
         }
       });
+
+      var MessageBoxDom = React.createClass({
+        render: function() {
+          return React.DOM.div(
+            { className: 'container'},
+            React.DOM.h1(null, 'Hello, World'),
+            SubMessage(null)
+          );
+        }
+      });
+
+      var SubMessage = React.createClass({
+        render: function() {
+          return (
+            <small>Its good to see you</small>
+          );
+        }
+      });
+
+      var reactComponentJSX = React.renderComponent(
+        <MessageBox />,
+        document.getElementById('jsx')
+      );
+
+      var reactComponentDOM = React.renderComponent(
+        MessageBoxDom(null),
+        document.getElementById('dom')
+      );
+
     </script>
   </body>
 </html>
