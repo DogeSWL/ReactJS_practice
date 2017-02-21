@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>First Component</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
   <body>
     <!-- container node -->
@@ -23,15 +24,15 @@
 
         componentWillMount: function() {
           debugger;
+        },
+
+        componentDidMount: function() {
+          debugger;
           this.loadData().then(function(data) {
             this.setState({
               metric:data
             });
           }.bind(this));
-        },
-
-        componentDidMount: function() {
-          debugger;
         },
 
         getInitialState: function() {

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>First Component</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
   <body>
     <!-- container node -->
@@ -18,7 +19,7 @@
       var Dashboard = React.createClass({
 
         loadData: function(url) {
-          return $.get('https://reactjs-ex9.firebaseio.com/' + this.props.url + '/.json');
+          return $.get('https://reactjs-ex9.firebaseio.com/' + url + '/.json');
         },
 
         componentWillMount: function() {
@@ -44,9 +45,9 @@
           }.bind(this));
         },
 
-        shouldComponentUpdate: function(nextProps, nextState) {
-          return nextState.metric > 100;
-        },
+        // shouldComponentUpdate: function(nextProps, nextState) {
+        //   return nextState.metric > 100;
+        // },
 
         getInitialState: function() {
           return {
