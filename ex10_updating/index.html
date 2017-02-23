@@ -37,7 +37,7 @@
 
         componentWillReceiveProps: function(nextProps) {
           var lastUrl = this.props.url;
-          this.loadData(nextProps.url).then(function(data){
+          this.loadData(nextProps.url).then(function(data) {
             this.setState({
               lastRoute: lastUrl,
               metric: data
@@ -45,9 +45,9 @@
           }.bind(this));
         },
 
-        // shouldComponentUpdate: function(nextProps, nextState) {
-        //   return nextState.metric > 100;
-        // },
+        shouldComponentUpdate: function(nextProps, nextState) {
+          return nextState.metric > 100;
+        },
 
         getInitialState: function() {
           return {
